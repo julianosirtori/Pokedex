@@ -1,19 +1,37 @@
 import React from 'react';
-import { View } from 'react-native';
 
-// import { Container } from './styles';
-import Pokeball from '../../assets/patterns/pokeball.svg';
+import SearchInput from '../../components/SearchInput';
+import Pokemon from '../../components/Pokemon';
+
+import {
+  Container,
+  PokeballSvg,
+  Title,
+  Description,
+  Header,
+  FilterSvg,
+  SortSvg,
+  GenerationSvg,
+  ListPokemon,
+} from './styles';
 
 export default function Home() {
-  const color = '#aaa';
   return (
-    <View>
-      <Pokeball
-        fill={color}
-
-        width={320}
-        height={320}
-      />
-    </View>
+    <Container>
+      <PokeballSvg />
+      <Header>
+        <GenerationSvg />
+        <SortSvg />
+        <FilterSvg />
+      </Header>
+      <Title>Pokédex</Title>
+      <Description>Search for Pokémon by name or using the National Pokédex number.</Description>
+      <SearchInput />
+      <ListPokemon>
+        <Pokemon />
+        <Pokemon />
+        <Pokemon />
+      </ListPokemon>
+    </Container>
   );
 }

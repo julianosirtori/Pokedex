@@ -28,5 +28,6 @@ module.exports = {
       { "extensions": [".js", ".jsx"] }
     ],
     "import/prefer-default-export": "off",
+    'react-native/no-raw-text': 'off'
   },
 };
