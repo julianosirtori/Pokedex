@@ -15,7 +15,11 @@ import {
   ListPokemon,
 } from './styles';
 
-export default function Home() {
+export default function Home({ navigation }) {
+  function navigateToProfile() {
+    navigation.navigate('Profile');
+  }
+
   return (
     <Container>
       <PokeballSvg />
@@ -28,7 +32,7 @@ export default function Home() {
       <Description>Search for Pokémon by name or using the National Pokédex number.</Description>
       <SearchInput />
       <ListPokemon>
-        <Pokemon />
+        <Pokemon onPress={navigateToProfile} />
         <Pokemon />
         <Pokemon />
       </ListPokemon>

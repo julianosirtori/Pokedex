@@ -13,9 +13,9 @@ import {
   Pokemon001Svg,
 } from './styles';
 
-export default function Pokemon() {
+export default function Pokemon({ ...props }) {
   return (
-    <Container>
+    <Container {...props}>
 
       <Content>
         <Info>

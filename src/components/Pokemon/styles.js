@@ -3,7 +3,7 @@ import Pokeball from '../../assets/patterns/pokeball.svg';
 import Box6x3 from '../../assets/patterns/Box6x3.svg';
 import Pokemon001 from '../../assets/pokemon/001.svg';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   height: 140px;
   width: 100%;
   justify-content: flex-end;
