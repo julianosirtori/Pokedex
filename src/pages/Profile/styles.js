@@ -48,18 +48,20 @@ export const Tabs = styled.View`
 export const TabHeader = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding: 8px 40px 15px 40px; 
+  padding: 4px 40px 0px 40px; 
 
 `;
 
 export const ButtonNavigateTab = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
+  max-width: 90px;
+  padding: 8px;
+  width: 100%;
 `;
 
 export const ButtonNavigateTabText = styled.Text`
   font-size: 16px;
-  line-height: 19px;
   color: #FFFFFF;
   opacity: ${(props) => (props.active ? 1 : 0.5)};
   font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
@@ -68,7 +70,4 @@ export const ButtonNavigateTabText = styled.Text`
 
 export const TabContent = styled.View`
   flex: 1;
-  background: #fff;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
 `;

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import TabsScreen from '../../routes/tabs';
 
 import {
   Container,
@@ -16,6 +18,13 @@ import {
 } from './styles';
 
 export default function Profile({ navigation }) {
+  const [tabActive, setTabActive] = useState('about');
+
+  function navigateBetweenTabs(tab) {
+    navigation.navigate(tab);
+    setTabActive(tab);
+  }
+
   return (
     <Container>
       <Box10x5Svg />
@@ -28,20 +37,26 @@ export default function Profile({ navigation }) {
       </Header>
       <Tabs>
         <TabHeader>
-          <ButtonNavigateTab>
-            <PokeballSvg />
-            <ButtonNavigateTabText active={1}>About</ButtonNavigateTabText>
+
+          <ButtonNavigateTab onPress={() => navigateBetweenTabs('About')}>
+            {tabActive === 'About' && (<PokeballSvg />)}
+            <ButtonNavigateTabText active={tabActive === 'About'}>About</ButtonNavigateTabText>
           </ButtonNavigateTab>
-          <ButtonNavigateTab>
-            {false && (<PokeballSvg />)}
-            <ButtonNavigateTabText>Stats</ButtonNavigateTabText>
+
+          <ButtonNavigateTab onPress={() => navigateBetweenTabs('Stats')}>
+            {tabActive === 'Stats' && (<PokeballSvg />)}
+            <ButtonNavigateTabText active={tabActive === 'Stats'}>Stats</ButtonNavigateTabText>
           </ButtonNavigateTab>
-          <ButtonNavigateTab>
-            {false && (<PokeballSvg />)}
-            <ButtonNavigateTabText>Evolution</ButtonNavigateTabText>
+
+          <ButtonNavigateTab onPress={() => navigateBetweenTabs('Evolution')}>
+            {tabActive === 'Evolution' && (<PokeballSvg />)}
+            <ButtonNavigateTabText active={tabActive === 'Evolution'}>Evolution</ButtonNavigateTabText>
           </ButtonNavigateTab>
+
         </TabHeader>
-        <TabContent />
+        <TabContent>
+          <TabsScreen />
+        </TabContent>
       </Tabs>
     </Container>
   );
