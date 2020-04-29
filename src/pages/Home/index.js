@@ -5,6 +5,7 @@ import Pokemon from '../../components/Pokemon';
 
 import {
   Container,
+  Content,
   PokeballSvg,
   Title,
   Description,
@@ -13,6 +14,7 @@ import {
   SortSvg,
   GenerationSvg,
   ListPokemon,
+  SortContainer,
 } from './styles';
 
 export default function Home({ navigation }) {
@@ -22,20 +24,23 @@ export default function Home({ navigation }) {
 
   return (
     <Container>
-      <PokeballSvg />
-      <Header>
-        <GenerationSvg />
-        <SortSvg />
-        <FilterSvg />
-      </Header>
-      <Title>Pokédex</Title>
-      <Description>Search for Pokémon by name or using the National Pokédex number.</Description>
-      <SearchInput />
-      <ListPokemon>
-        <Pokemon onPress={navigateToProfile} />
-        <Pokemon />
-        <Pokemon />
-      </ListPokemon>
+      <Content>
+        <PokeballSvg />
+        <Header>
+          <GenerationSvg />
+          <SortSvg />
+          <FilterSvg />
+        </Header>
+        <Title>Pokédex</Title>
+        <Description>Search for Pokémon by name or using the National Pokédex number.</Description>
+        <SearchInput />
+        <ListPokemon>
+          <Pokemon onPress={navigateToProfile} />
+          <Pokemon />
+          <Pokemon />
+        </ListPokemon>
+      </Content>
+      <SortContainer />
     </Container>
   );
 }

@@ -1,18 +1,26 @@
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
+import SortComponent from '../../components/Sort';
+
 import Pokeball from '../../assets/patterns/pokeball.svg';
 import Filter from '../../assets/icons/filter.svg';
 import Sort from '../../assets/icons/sort.svg';
 import Generation from '../../assets/icons/generation.svg';
 
 export const Container = styled.View`
-  background: #FFFFFF;
+  /* background: #FFFFFF; */
+  background: #00000040;
+  height: 100%;
+`;
+
+export const Content = styled.View`
   height: 100%;
   padding: 40px 40px 0 40px;
 `;
 
 export const PokeballSvg = styled(Pokeball).attrs({
-  fill: '#F5F5F5',
+  // fill: '#F5F5F5',
+  fill: '#b9b9b9',
   width: Dimensions.get('screen').width,
   height: Dimensions.get('screen').width,
 })`
@@ -70,4 +78,9 @@ export const Description = styled.Text`
 
 export const ListPokemon = styled.ScrollView`
   flex-direction: column;
+`;
+
+export const SortContainer = styled(SortComponent)`
+   position: absolute;
+   bottom: 0;
 `;
