@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { Animated } from 'react-native';
 import Button from '../Button';
 
 export const Container = styled.View`
@@ -7,10 +8,11 @@ export const Container = styled.View`
   background: #00000040;
 `;
 
-export const Content = styled.View`
+export const Content = styled(Animated.View)`
   background: #fff;
   position: absolute;
-  bottom: 0;
+  height: 480px;
+  bottom: 0px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   padding: 30px 40px;
