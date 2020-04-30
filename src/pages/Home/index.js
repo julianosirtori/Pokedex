@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
 import SearchInput from '../../components/SearchInput';
 import Pokemon from '../../components/Pokemon';
 
@@ -18,6 +18,8 @@ import {
 } from './styles';
 
 export default function Home({ navigation }) {
+  const [menuActived, setMenuActived] = useState();
+
   function navigateToProfile() {
     navigation.navigate('Profile');
   }
@@ -27,9 +29,16 @@ export default function Home({ navigation }) {
       <Content>
         <PokeballSvg />
         <Header>
-          <GenerationSvg />
-          <SortSvg />
-          <FilterSvg />
+          <TouchableOpacity onPress={() => setMenuActived('generations')}>
+            <GenerationSvg />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setMenuActived('sort')}>
+            <SortSvg />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setMenuActived('filter')}>
+            <FilterSvg />
+          </TouchableOpacity>
+
         </Header>
         <Title>Pokédex</Title>
         <Description>Search for Pokémon by name or using the National Pokédex number.</Description>
@@ -40,7 +49,8 @@ export default function Home({ navigation }) {
           <Pokemon />
         </ListPokemon>
       </Content>
-      <SortContainer />
+      {menuActived === 'sort' && (<SortContainer />)}
+
     </Container>
   );
 }

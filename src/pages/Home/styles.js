@@ -8,8 +8,7 @@ import Sort from '../../assets/icons/sort.svg';
 import Generation from '../../assets/icons/generation.svg';
 
 export const Container = styled.View`
-  /* background: #FFFFFF; */
-  background: #00000040;
+  background: #FFFFFF;
   height: 100%;
 `;
 
@@ -19,8 +18,7 @@ export const Content = styled.View`
 `;
 
 export const PokeballSvg = styled(Pokeball).attrs({
-  // fill: '#F5F5F5',
-  fill: '#b9b9b9',
+  fill: '#F5F5F5',
   width: Dimensions.get('screen').width,
   height: Dimensions.get('screen').width,
 })`
@@ -82,5 +80,4 @@ export const ListPokemon = styled.ScrollView`
 
 export const SortContainer = styled(SortComponent)`
    position: absolute;
-   bottom: 0;
 `;

@@ -2,14 +2,15 @@ import styled from 'styled-components/native';
 import Button from '../Button';
 
 export const Container = styled.View`
-  height: 300px;
+  height: 100%;
   width: 100%;
-  background: transparent;
+  background: #00000040;
 `;
 
 export const Content = styled.View`
   background: #fff;
-  height: 100%;
+  position: absolute;
+  bottom: 0;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   padding: 30px 40px;
@@ -30,4 +31,5 @@ export const Description = styled.Text`
 
 export const ButtonStyled = styled(Button)`
   margin-bottom: 20px;
+  elevation: 5;
 `;
