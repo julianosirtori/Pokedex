@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import api from '../../services/api';
 import Badge from '../Badge';
+import backgroundColor from '../../styles/backgroundColor';
 
 import {
   Container,
@@ -10,26 +12,55 @@ import {
   NameText,
   Badges,
   Box6x3Svg,
-  Pokemon001Svg,
+  ImagePokemon,
 } from './styles';
 
-export default function Pokemon({ ...props }) {
+export default function Pokemon({ pokemon, ...props }) {
+  const [id, setId] = useState('');
+  const [name, setName] = useState('');
+  const [types, setTypes] = useState([]);
+  const [background, setBackground] = useState('#8BBE8A');
+
+  async function loadSpecie(specie) {
+    const response = await api.get(`pokemon-species/${specie}`);
+    const { data } = response;
+    setBackground(backgroundColor[data.color.name]);
+  }
+
+  async function loadPokemon() {
+    const response = await api.get(`pokemon/${pokemon.name}`);
+    const { data } = response;
+    setId(data.id);
+    setName(data.name);
+    setTypes(data.types);
+    loadSpecie(data.species.name);
+  }
+
+  useEffect(() => {
+    loadPokemon();
+  }, []);
+
   return (
     <Container {...props}>
 
-      <Content>
+      <Content backgroundColor={background}>
         <Info>
-          <NumberText>#001</NumberText>
-          <NameText>Bulbasaur</NameText>
+          <NumberText>{id}</NumberText>
+          <NameText>{name}</NameText>
           <Badges>
-            <Badge type="grass" color="#62B957">Grass</Badge>
-            <Badge type="poison" color="#A552CC">Grass</Badge>
+            {types.map((item) => (
+              <Badge key={item.type.name} type={item.type} />
+            ))}
           </Badges>
         </Info>
-
         <PokeballSvg />
+        <ImagePokemon source={{
+          uri: `https://www.serebii.net/art/th/${id}.png`,
+        }}
+        />
+
+
         <Box6x3Svg />
-        <Pokemon001Svg />
       </Content>
 
     </Container>

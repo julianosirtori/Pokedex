@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  width: 61px;
   height: 25px;
   background: ${(props) => props.color};
   border-radius: 3px;

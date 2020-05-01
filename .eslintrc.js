@@ -28,6 +28,8 @@ module.exports = {
       { "extensions": [".js", ".jsx"] }
     ],
     "import/prefer-default-export": "off",
-    'react-native/no-raw-text': 'off'
+    'react-native/no-raw-text': 'off',
+    'react/prop-types': 'off',
+    "react/jsx-props-no-spreading": 'off'
   },
 };

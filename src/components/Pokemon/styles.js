@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 import Pokeball from '../../assets/patterns/pokeball.svg';
 import Box6x3 from '../../assets/patterns/Box6x3.svg';
-import Pokemon001 from '../../assets/pokemon/001.svg';
 
 export const Container = styled.TouchableOpacity`
   height: 140px;
@@ -29,20 +28,18 @@ export const Box6x3Svg = styled(Box6x3).attrs({
   top: 5px;
 `;
 
-export const Pokemon001Svg = styled(Pokemon001).attrs({
-  fill: '#ffffff4d',
-  width: 130,
-  height: 130,
-})`
+export const ImagePokemon = styled.Image`
   position: absolute;
   right: 10px;
   bottom: 10px;
+  width: 130px;
+  height: 120px;
 `;
 
 export const Content = styled.View`
   height: 115px;
   width: 100%;
-  background: #8BBE8A;
+  background: ${(props) => props.backgroundColor};
   border-radius: 10px;
   elevation: 10;
   
@@ -65,6 +62,7 @@ export const NameText = styled.Text`
   line-height: 31px;
   color: #FFFFFF;
   margin-bottom: 5px;
+  text-transform: capitalize;
 `;
 
 export const Badges = styled.View`

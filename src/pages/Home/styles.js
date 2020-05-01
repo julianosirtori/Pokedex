@@ -74,9 +74,9 @@ export const Description = styled.Text`
   margin-bottom: 25px;
 `;
 
-export const ListPokemon = styled.ScrollView`
-  flex-direction: column;
-`;
+export const ListPokemon = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})``;
 
 export const SortContainer = styled(SortComponent)`
    position: absolute;
