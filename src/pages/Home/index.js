@@ -20,14 +20,16 @@ import {
   SortContainer,
 } from './styles';
 
-export default function Home({ navigation }) {
+export default function Home() {
+  const [offset, setOffset] = useState(0);
   const [pokemons, setPokemons] = useState([]);
   const [menuActived, setMenuActived] = useState();
 
   async function loadPokemons() {
-    const response = await api.get('pokemon');
+    const response = await api.get(`pokemon/?offset=${offset}`);
     const { results } = response.data;
-    setPokemons(results);
+    setPokemons([...pokemons, ...results]);
+    setOffset(offset + results.length);
   }
 
   useEffect(() => {
@@ -55,6 +57,9 @@ export default function Home({ navigation }) {
         <SearchInput />
         <ListPokemon
           data={pokemons}
+          onEndReached={loadPokemons}
+          onEndReachedThreshold={0.2}
+          removeClippedSubviews={false}
           keyExtractor={(item) => item.name}
           renderItem={({ item }) => (
             <Pokemon pokemon={item} />

@@ -1,12 +1,12 @@
 export default {
   black: '#FFA756',
   blue: '#58ABF6',
-  brown: '#B5B9C4',
-  gray: '#4A90DA',
+  brown: '#F78551',
+  gray: '#B5B9C4',
   green: '#8BBE8A',
-  pink: '#8CB330',
-  purple: '#9DA0AA',
+  pink: '#EBA8C3',
+  purple: '#9F6E97',
   red: '#FFA756',
   white: '#DD7748',
-  yellow: '#ED6EC7',
+  yellow: '#F2CB55',
 };
