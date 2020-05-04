@@ -7,8 +7,6 @@
 ## :art: Design
 <a href="https://www.figma.com/file/THLxZSlOoUYMZrjFg0Kl1M/Pok%C3%A9dex?node-id=218%3A4647">Figma Link</a>
 
-## :art: Design
-
 ## 📋 Pending Features
 
 - [ ] Sort Pokémons alphabetically
